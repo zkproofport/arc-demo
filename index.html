@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZKProofport × Arc — Eligibility to execution</title>
+<meta name="description" content="A source-backed Arc integration design: Circle Agent Wallets, ERC-8004, App Kit, Gateway Nanopayments and a ZK-gated USDC action. Simulation, not a live deployment.">
+<link rel="stylesheet" href="styles.css"><link rel="alternate" type="application/json" href="review.json" title="Integration evidence"><script src="app.js" defer></script><script src="audio.js" defer></script>
+</head><body><div id="stage">
+<header><div class="brand"><img src="assets/zkproofport-logo.png" alt="ZKProofport"><strong>ZKProofport <span>×</span> Arc</strong></div><div class="environment"><i></i> ARC TESTNET <span>5042002</span></div><div class="header-actions"><span class="simulation">DESIGN SIMULATION</span><button id="evidence-open">Evidence & sources ↗</button></div></header>
+<main>
+<section class="mission" aria-label="Agent mission"><div><p class="eyebrow">PRIVATE ELIGIBILITY → AGENTIC FINANCE</p><h1>Let the agent act. Keep the identity out.</h1></div><div class="mission-amount"><strong>10<span> USDC</span></strong><span>ONE ELIGIBLE DEPOSIT ON ARC</span></div></section>
+<nav id="timeline" aria-label="Protocol phases"></nav>
+<section class="workspace">
+<article id="scene" aria-label="Complete protocol flow">
+<div class="map-topline"><span>THE COMPLETE FLOW</span><span>Click a component or phase to inspect it</span><span class="map-legend"><i></i> Arc onchain <b></b> Offchain</span></div>
+<div id="scene-body"></div>
+</article></section>
+<section class="phase-focus" aria-label="Selected phase details"><div class="phase-copy"><p id="scene-kicker" class="eyebrow"></p><h2 id="scene-title"></h2><p id="scene-caption"></p></div><div class="phase-detail"><span id="scene-location" class="location"></span><strong id="decision-value"></strong><p id="decision-reason"></p></div><button id="scene-evidence">Evidence & details ↗</button></section>
+<aside class="receipt" aria-label="Run status"><span id="run-state"></span><span id="wallet-address"></span><dl id="status-list"></dl><div class="receipt-footer"><small></small></div></aside>
+</main>
+<footer><div class="transport"><button id="play">Play demo <span>▶</span></button><button id="pause" aria-label="Pause demo" disabled>Ⅱ</button><button id="restart" aria-label="Restart demo">↺</button><button id="previous" aria-label="Previous phase">←</button><button id="next" aria-label="Next phase">→</button><span id="clock">00 / 42s</span></div><div class="scenario-control"><label for="scenario">TEST THE DECISION</label><select id="scenario"><option value="valid">Valid authorization</option><option value="budget">Proof fee over budget</option><option value="wallet">Wrong execution wallet</option><option value="replay">Replayed authorization</option><option value="expired">Expired authorization</option></select></div><div class="audio-controls"><label><input id="voice-enabled" type="checkbox" checked> Voice</label><input id="voice-volume" aria-label="Narration volume" type="range" min="0" max="1" step="0.05" value="0.8"><label><input id="effects-enabled" type="checkbox" checked> FX</label><input id="effects-volume" aria-label="Effects volume" type="range" min="0" max="1" step="0.05" value="0.35"><span id="audio-status" role="status">English narration</span></div></footer>
+<div id="progress" role="progressbar" aria-label="Demo progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div></div>
+<dialog id="evidence" aria-labelledby="evidence-title"><div class="evidence-top"><div><p class="eyebrow">REPRODUCIBLE REVIEW</p><h2 id="evidence-title">The integration, with evidence.</h2></div><button id="evidence-close" aria-label="Close evidence">×</button></div><p class="evidence-intro">Official capabilities, proposed integration and current code are separate. This visualizer sends no transactions and generates no cryptographic proof.</p><nav class="evidence-tabs" aria-label="Evidence categories"><button data-tab="integration" aria-selected="true">Circle integrations</button><button data-tab="security" aria-selected="false">Security & gaps</button><button data-tab="submission" aria-selected="false">Review package</button></nav><div id="evidence-body"></div><div class="evidence-bottom"><span>Docs reviewed · 7 September 2026</span><a href="review.json" download>Evidence JSON ↓</a><a href="RESEARCH.md" target="_blank" rel="noopener">Full research ↗</a></div></dialog>
+</body></html>

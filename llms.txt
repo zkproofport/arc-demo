@@ -1,0 +1,13 @@
+# ZKProofport on Arc
+
+Source-backed design simulation, not a deployed Arc application.
+
+- [Research and implementation gaps](RESEARCH.md)
+- [Structured review evidence](review.json)
+- [Running the visualizer and tests](README.md)
+- [Executable simulation and authorization specification](app.js)
+- [Focused specification tests](test.cjs)
+
+Official platform addresses are not project deployment evidence. Project agent IDs, verifier/vault addresses and transaction hashes are unknown/null. The UI makes no network calls; all positive and rejected outcomes are simulated.
+
+The proposed product buys Coinbase KYC proofs using Circle Agent Stack and Gateway Nanopayments, then conditionally executes a USDC action on Arc. Current source-wallet unlinkability, TEE deployment and action-binding gaps are documented in RESEARCH.md.

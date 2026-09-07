@@ -1,0 +1,201 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ZKProofport on Arc",
+  "mode": "design-simulation",
+  "reviewedAt": "2026-09-07",
+  "event": {
+    "name": "ETHOnline 2026",
+    "url": "https://ethglobal.com/events/ethonline2026/prizes/arc",
+    "userRegistrationConfirmed": false,
+    "aiJudgesConfirmed": false,
+    "continuityEligibilityRequiresConfirmation": true
+  },
+  "network": {
+    "name": "Arc Testnet",
+    "chainId": 5042002,
+    "caip2": "eip155:5042002",
+    "circleWallet": "ARC-TESTNET",
+    "appKit": "Arc_Testnet",
+    "gatewayDomain": 26,
+    "usdc": "0x3600000000000000000000000000000000000000",
+    "erc20Decimals": 6,
+    "nativeDecimals": 18
+  },
+  "officialContracts": {
+    "identityRegistry": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+    "gatewayWallet": "0x0077777d7EBA4688BDeF3E311b846F25870A19B9",
+    "source": "https://docs.arc.io/arc/references/contract-addresses",
+    "identitySource": "https://docs.arc.io/arc/tutorials/register-your-first-ai-agent"
+  },
+  "projectEvidence": {
+    "arcAgentId": null,
+    "arcRegistrationTransaction": null,
+    "arcVerifierAddress": null,
+    "arcGateAddress": null,
+    "arcDepositTransaction": null,
+    "gatewayPaymentAuthorization": null,
+    "gatewayBatchTransaction": null,
+    "liveProof": null,
+    "teeAttestation": null
+  },
+  "integrations": [
+    {
+      "name": "Circle Agent Stack + Agent Wallets",
+      "status": "proposed",
+      "role": "User-authorized EOA wallet B on Arc; decisions from policy, quote and balances",
+      "source": "https://github.com/circlefin/agent-stack-starter-kits"
+    },
+    {
+      "name": "ERC-8004",
+      "status": "proposed",
+      "role": "Arc prover identity; offchain capability resolution",
+      "source": "https://docs.arc.io/arc/tutorials/register-your-first-ai-agent"
+    },
+    {
+      "name": "App Kit Unified Balance",
+      "status": "proposed",
+      "role": "Public prefunded source balance to Wallet B on Arc; compatible funding-wallet signer",
+      "source": "https://docs.arc.io/app-kit/quickstarts/unified-balance-deposit-and-spend"
+    },
+    {
+      "name": "Gateway Nanopayments",
+      "status": "proposed",
+      "role": "EOA x402 proof purchase; accepted then later batched settlement",
+      "source": "https://developers.circle.com/gateway/nanopayments/quickstarts/buyer"
+    },
+    {
+      "name": "ZKProofport Noir proof",
+      "status": "existing-code-needs-adaptation",
+      "role": "Action-bound authorization and private-entropy nullifier required"
+    },
+    {
+      "name": "Atomic Arc gate + vault",
+      "status": "not-implemented",
+      "role": "Verify proof and challenge, check caller/chain/audience/amount/expiry, consume nonce, transfer USDC"
+    }
+  ],
+  "limitations": [
+    "All browser outcomes are simulated; no APIs or transactions are executed.",
+    "Current payment/identity/verifier configurations use Ethereum/Base.",
+    "TEE implemented but current ordinary-server deployment does not provide host witness confidentiality.",
+    "Current public nullifier permits candidate-wallet testing; unlinkability is not established.",
+    "Action-binding profile and custom Arc gate require implementation.",
+    "Circle Agent Wallet custom spending policies are mainnet-only; Testnet cap is application-enforced.",
+    "Current credential proof does not alone establish fresh non-revocation or canonical inclusion.",
+    "The 0.001 USDC proof price is illustrative, not benchmarked economics."
+  ],
+  "flow": [
+    {
+      "phase": "mandate",
+      "title": "A specific action. A bounded budget.",
+      "location": "OFFCHAIN \u00b7 AGENT STACK",
+      "durationMs": 6000,
+      "mode": "simulated",
+      "requiredLiveEvidence": null
+    },
+    {
+      "phase": "identity",
+      "title": "Find the prover. Verify its Arc identity.",
+      "location": "ARC + OFFCHAIN METADATA",
+      "durationMs": 5000,
+      "mode": "simulated",
+      "requiredLiveEvidence": null
+    },
+    {
+      "phase": "fund",
+      "title": "Bring USDC to the agent on Arc.",
+      "location": "APP KIT \u2192 ARC TESTNET",
+      "durationMs": 5000,
+      "mode": "simulated",
+      "requiredLiveEvidence": null
+    },
+    {
+      "phase": "pay",
+      "title": "Authorize a nanopayment. Start proving.",
+      "location": "OFFCHAIN \u2192 LATER ARC BATCH",
+      "durationMs": 6000,
+      "mode": "simulated",
+      "requiredLiveEvidence": null
+    },
+    {
+      "phase": "prove",
+      "title": "A private credential. A scoped proof.",
+      "location": "OFFCHAIN \u00b7 PROVER",
+      "durationMs": 7000,
+      "mode": "simulated",
+      "requiredLiveEvidence": null
+    },
+    {
+      "phase": "execute",
+      "title": "Verify and deposit in one Arc transaction.",
+      "location": "ARC ONCHAIN \u00b7 USDC GAS",
+      "durationMs": 8000,
+      "mode": "simulated",
+      "requiredLiveEvidence": null
+    },
+    {
+      "phase": "receipt",
+      "title": "An eligible action. A reviewable receipt.",
+      "location": "ARC OUTCOME \u00b7 SIMULATED",
+      "durationMs": 5000,
+      "mode": "simulated",
+      "requiredLiveEvidence": null
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "valid",
+      "name": "Valid authorization",
+      "expectedResult": "SIMULATED_DEPOSIT",
+      "cryptographicVerification": false
+    },
+    {
+      "id": "budget",
+      "name": "Proof fee over budget",
+      "expectedResult": "PRICE_CAP_EXCEEDED",
+      "cryptographicVerification": false
+    },
+    {
+      "id": "wallet",
+      "name": "Wrong execution wallet",
+      "expectedResult": "WALLET_MISMATCH",
+      "cryptographicVerification": false
+    },
+    {
+      "id": "replay",
+      "name": "Replayed authorization",
+      "expectedResult": "AUTHORIZATION_USED",
+      "cryptographicVerification": false
+    },
+    {
+      "id": "expired",
+      "name": "Expired authorization",
+      "expectedResult": "AUTHORIZATION_EXPIRED",
+      "cryptographicVerification": false
+    }
+  ],
+  "validation": {
+    "command": "node test.cjs",
+    "scope": "simulation-engine-and-authorization-specification",
+    "fullRepositoryTestsRun": false,
+    "liveArcTestsRun": false
+  },
+  "sources": {
+    "prizes": "https://ethglobal.com/events/ethonline2026/prizes/arc",
+    "starter": "https://github.com/circlefin/agent-stack-starter-kits",
+    "wallet": "https://developers.circle.com/agent-stack/agent-wallets",
+    "walletChains": "https://developers.circle.com/agent-stack/agent-wallets/supported-blockchains",
+    "walletExecute": "https://developers.circle.com/agent-stack/agent-wallets/wallet-operations/execute-contract",
+    "policies": "https://developers.circle.com/agent-stack/agent-wallets/wallet-operations/custom-policies",
+    "identity": "https://docs.arc.io/arc/tutorials/register-your-first-ai-agent",
+    "appkit": "https://docs.arc.io/app-kit/quickstarts/unified-balance-deposit-and-spend",
+    "nano": "https://developers.circle.com/gateway/nanopayments",
+    "buyer": "https://developers.circle.com/gateway/nanopayments/quickstarts/buyer",
+    "seller": "https://developers.circle.com/gateway/nanopayments/quickstarts/seller",
+    "batch": "https://developers.circle.com/gateway/nanopayments/concepts/batched-settlement",
+    "chains": "https://developers.circle.com/gateway/references/supported-blockchains",
+    "contracts": "https://docs.arc.io/arc/references/contract-addresses",
+    "evm": "https://docs.arc.io/arc/references/evm-differences",
+    "cli": "https://developers.circle.com/agent-stack/agent-nanopayments/quickstart"
+  }
+}
