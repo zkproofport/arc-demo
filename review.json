@@ -87,8 +87,8 @@
   "flow": [
     {
       "phase": "mandate",
-      "title": "A specific action. A bounded budget.",
-      "location": "OFFCHAIN \u00b7 AGENT STACK",
+      "title": "This vault requires proof of Coinbase KYC.",
+      "location": "OFFCHAIN · AGENT STACK",
       "durationMs": 6000,
       "mode": "simulated",
       "requiredLiveEvidence": null
@@ -104,7 +104,7 @@
     {
       "phase": "fund",
       "title": "Bring USDC to the agent on Arc.",
-      "location": "APP KIT \u2192 ARC TESTNET",
+      "location": "APP KIT → ARC TESTNET",
       "durationMs": 5000,
       "mode": "simulated",
       "requiredLiveEvidence": null
@@ -112,7 +112,7 @@
     {
       "phase": "pay",
       "title": "Authorize a nanopayment. Start proving.",
-      "location": "OFFCHAIN \u2192 LATER ARC BATCH",
+      "location": "OFFCHAIN → LATER ARC BATCH",
       "durationMs": 6000,
       "mode": "simulated",
       "requiredLiveEvidence": null
@@ -120,7 +120,7 @@
     {
       "phase": "prove",
       "title": "A private credential. A scoped proof.",
-      "location": "OFFCHAIN \u00b7 PROVER",
+      "location": "OFFCHAIN · PROVER",
       "durationMs": 7000,
       "mode": "simulated",
       "requiredLiveEvidence": null
@@ -128,15 +128,15 @@
     {
       "phase": "execute",
       "title": "Verify and deposit in one Arc transaction.",
-      "location": "ARC ONCHAIN \u00b7 USDC GAS",
+      "location": "ARC ONCHAIN · USDC GAS",
       "durationMs": 8000,
       "mode": "simulated",
       "requiredLiveEvidence": null
     },
     {
       "phase": "receipt",
-      "title": "An eligible action. A reviewable receipt.",
-      "location": "ARC OUTCOME \u00b7 SIMULATED",
+      "title": "KYC verified. Deposit complete. Wallet A omitted.",
+      "location": "ARC OUTCOME · SIMULATED",
       "durationMs": 5000,
       "mode": "simulated",
       "requiredLiveEvidence": null

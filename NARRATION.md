@@ -1,10 +1,10 @@
 # English narration
 
-Recorded with macOS Samantha. All outcomes describe the proposed simulation.
+Recorded with macOS Samantha. Describes a proposed simulation; omission from public output is not a claim of complete unlinkability.
 
 ## mandate
 
-In this proposed flow, an agent authorizes Wallet B to deposit ten U S D C on Arc.
+This vault requires Coinbase K Y C. Prove eligibility for Wallet B without publishing the source wallet address.
 
 ## identity
 
@@ -28,7 +28,7 @@ On Arc, the verifier and vault check the proof, wallet, scope and expiry. Valid 
 
 ## receipt
 
-Ten U S D C deposited, in simulation. T E E redeployment and privacy hardening remain pending.
+K Y C verified. Deposit complete. Wallet A is omitted from public results. This is a simulation.
 
 ## budget
 
